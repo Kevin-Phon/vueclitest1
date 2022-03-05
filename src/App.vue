@@ -1,6 +1,6 @@
 <template>
   <h1>Hi {{name}}</h1>
-  <MultiModal head="Login Success" content="Welcome,Traveller" theme="success" />
+  <MultiModal :head="head" :content="content" :theme="theme" />
 </template>
 
 <script>
@@ -8,7 +8,10 @@ import MultiModal from "./components/MultiModel.vue"
 export default {
   data(){
     return{
-      name : "Kevin"
+      name : "Kevin",
+      head : "Login Success",
+      content : "Welcome,Traveller",
+      theme : "success"
     }
   },
   components:{
