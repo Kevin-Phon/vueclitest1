@@ -6,11 +6,9 @@
     <MultiModal :head="head" :content="content" :theme="theme" @close="showModal=false"/>
   </div>
 
-
-
   <!-- another Modal -->
   <div v-if="showanotherModal">
-    <MultiModal :firstname="firstname" :lastname="lastname" :age="age" :color="color" @closeanother="showanotherModal=false"/>
+    <MyModal :title="title" :text="text"  :color="color" @closeanother="showanotherModal=false"/>
   </div>
 
   <button @click="showModal=true">open modal</button> <br><br>
@@ -20,6 +18,7 @@
 
 <script>
 import MultiModal from "./components/MultiModel.vue"
+import MyModal from "./components/MyModal.vue"
 export default {
   data(){
     return{
@@ -27,16 +26,16 @@ export default {
       head : "Login Success",
       content : "Welcome,Traveller",
       theme : "success",
-      firstname : "Kevin",
-      lastname : "Phon",
-      age : "23",
+      title : "Are you sure you wnat to delete",
+      text : "Delete done",
       color : "delete",
       showModal : false,
       showanotherModal : false,
     }
   },
   components:{
-    MultiModal
+    MultiModal,
+    MyModal
   }
 }
 </script>
