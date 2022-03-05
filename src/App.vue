@@ -1,19 +1,21 @@
 <template>
   <h1>Hi {{name}}</h1>
+
+  <!-- one Modal -->
   <div v-if="showModal">
-    <MultiModal :theme="theme" @close="showModal=false" >
-      <h1>Login Success</h1>
-      <p>Welcomr,Traveller</p>
-
-      <!-- slot with conditions -->
-      <template v-slot:links>
-        <a href="">Sign Up</a>
-        <a href="">Register</a>
-      </template>
-
-    </MultiModal>
+    <MultiModal :head="head" :content="content" :theme="theme" @close="showModal=false"/>
   </div>
-  <button @click="showModal=true">open modal</button>
+
+
+
+  <!-- another Modal -->
+  <div v-if="showanotherModal">
+    <MultiModal :firstname="firstname" :lastname="lastname" :age="age" :color="color" @closeanother="showanotherModal=false"/>
+  </div>
+
+  <button @click="showModal=true">open modal</button> <br><br>
+  <button @click="showanotherModal=true">open another modal</button>
+
 </template>
 
 <script>
@@ -25,7 +27,12 @@ export default {
       head : "Login Success",
       content : "Welcome,Traveller",
       theme : "success",
-      showModal : false
+      firstname : "Kevin",
+      lastname : "Phon",
+      age : "23",
+      color : "delete",
+      showModal : false,
+      showanotherModal : false,
     }
   },
   components:{
