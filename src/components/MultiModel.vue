@@ -1,8 +1,13 @@
 <template>
   <div class="backdrop" @click.self="closeModal">
       <div class="modal" :class="{success:theme==='success',danger:theme==='danger'}" >
-          <h1>{{head}}</h1>
-          <p>{{content}}</p>
+          <!-- <slot/> -->
+          <slot>
+              <!-- default (if there is no data,the data here will show as default. so use <slot></slot>) -->
+          </slot>
+
+        <!-- slot with conditions -->
+          <slot name="links"/>
       </div>
   </div>
 </template>
