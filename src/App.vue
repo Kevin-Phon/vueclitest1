@@ -1,6 +1,9 @@
 <template>
   <h1>Hi {{name}}</h1>
-  <MultiModal :head="head" :content="content" :theme="theme" />
+  <div v-if="showModal">
+    <MultiModal :head="head" :content="content" :theme="theme" @close="showModal=false" />
+  </div>
+  <button @click="showModal=true">open modal</button>
 </template>
 
 <script>
@@ -11,7 +14,8 @@ export default {
       name : "Kevin",
       head : "Login Success",
       content : "Welcome,Traveller",
-      theme : "success"
+      theme : "success",
+      showModal : false
     }
   },
   components:{
